@@ -5,3 +5,19 @@
     margin: 0.5em;
     border: 1px solid #2e2e2e;
 }
+.childElement {
+    background: rgb(203, 223, 230);
+    padding: 1em;
+    margin: 0.5em;
+    border: 1px solid #2e2e2e;
+}
+.inputField {
+    margin-left: 1em;
+    width: 8em;;
+}
+.buttonRow {
+    padding: 0.5em;
+}
+input {  
+    text-align: center; 
+} 
