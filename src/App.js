@@ -2,10 +2,12 @@ import { useState } from 'react';
 
 import './App.css';
 import Person from './Person/Person';
-import personsData from './Person/Persons.json';
+import personsData from './Person/data/Persons.json';
+import newPersonData from './Person/data/NewPerson.json'
 
 const App = () => {
     const [persons, setPersons] = useState(personsData);
+    const [newPerson, setNewPerson] = useState(newPersonData);
 
     return (
         <div className="App">
@@ -18,8 +20,15 @@ const App = () => {
                     {person.child}
                 </Person>
             })}
-            <button onClick={() => {
-                const newPerson = { name: 'Will', age: 15 };
+            {/* Change state of newPerson */}
+            <button className="buttonWithMargin" onClick={() => {
+                const updatedPerson = { child: 'I have a child now too!', ...newPerson }
+                setNewPerson(updatedPerson);
+            }}>
+                Update new Person
+            </button>
+            {/* Add newPerson to persons */}
+            <button className="buttonWithMargin" onClick={() => {
                 const updatedPersons = [...persons, newPerson]
                 setPersons(updatedPersons);
             }}>

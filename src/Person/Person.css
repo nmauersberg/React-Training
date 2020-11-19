@@ -18,6 +18,10 @@
 .buttonRow {
   padding: 0.5em;
 }
+.buttonWithMargin {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
 input {
   text-align: center;
 }
