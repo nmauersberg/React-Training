@@ -2,8 +2,15 @@ import React, { useState } from 'react';
 import './Person.css'
 
 const Person = (props) => {
-    const [ followers, setFollower ] = useState(0);
-    const [ personName, setNewName ] = useState(props.name);
+    const [followers, setFollower] = useState(0);
+    const [personName, setNewName] = useState(props.name);
+    const hasChildren = props.children !== undefined;
+
+    const childElement = (
+        <p className="childElement">
+            {props.children}
+        </p>
+    )
 
     return (
         <div className="personElement">
@@ -11,10 +18,11 @@ const Person = (props) => {
             <p>{followers} people are following me.</p>
             <div className="buttonRow">
                 <button onClick={() => setFollower(followers + 1)}>Add new follower</button>
-                <input className="inputField" type="text" placeholder="Change name" onChange={(evt) => setNewName(evt.target.value)}/>
+                <input className="inputField" type="text" placeholder="Change name" onChange={(evt) => setNewName(evt.target.value)} />
             </div>
-
-            {props.children}
+            { hasChildren ?
+                childElement : null
+            }
         </div>
     )
 }

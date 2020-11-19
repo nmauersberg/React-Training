@@ -1,18 +1,32 @@
+import { useState } from 'react';
+
 import './App.css';
-import Person from './Person/Person'
+import Person from './Person/Person';
+import personsData from './Person/Persons.json';
 
 const App = () => {
-  return (
-    <div className="App">
-      <h1>Some React Components:</h1>
-      <Person name="Jane" age="26">
-        <p className="childElement">
-          Hi, I am the Person's Child.
-        </p>
-      </Person>
-      <Person name="Dorian" age="36"/>
-    </div>
-  );
+    const [persons, setPersons] = useState(personsData);
+
+    return (
+        <div className="App">
+            <h1>Some React Components:</h1>
+            {persons.map((person, index) => {
+                return <Person
+                    name={person.name}
+                    age={person.age}
+                    key={index}>
+                    {person.child}
+                </Person>
+            })}
+            <button onClick={() => {
+                const newPerson = { name: 'Will', age: 15 };
+                const updatedPersons = [...persons, newPerson]
+                setPersons(updatedPersons);
+            }}>
+                Add more Persons
+            </button>
+        </div>
+    );
 }
 
 export default App;
