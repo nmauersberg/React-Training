@@ -16,13 +16,33 @@ const App = () => {
                 return <Person
                     name={person.name}
                     age={person.age}
-                    key={index}>
-                    {person.child}
+                    id={person.id}
+                    followers={person.followers}
+                    key={person.id + Math.random()}
+                    deleteByIndex={() => {
+                        const updatedPersons = [...persons];
+                        updatedPersons.splice(index, 1);
+                        setPersons(updatedPersons);
+                    }}
+                    deleteById={() => {
+                        const personIndex = persons.findIndex(p => p.id === person.id);
+                        const updatedPersons = [...persons];
+                        updatedPersons.splice(personIndex, 1);
+                        setPersons(updatedPersons);
+                    }}
+                    updatePersons={(updatedPerson) => {
+                        console.log(updatedPerson);
+                        const personIndex = persons.findIndex(p => p.id === person.id);
+                        const updatedPersons = [...persons];
+                        updatedPersons.splice(personIndex, 1, updatedPerson);
+                        setPersons(updatedPersons);
+                    }}>
+                    {person.children}
                 </Person>
             })}
             {/* Change state of newPerson */}
             <button className="buttonWithMargin" onClick={() => {
-                const updatedPerson = { child: 'I have a child now too!', ...newPerson }
+                const updatedPerson = { children: 'I have a child now too!', ...newPerson }
                 setNewPerson(updatedPerson);
             }}>
                 Update new Person

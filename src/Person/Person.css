@@ -1,9 +1,11 @@
 .personElement {
   background: lightblue;
   color: #1e1e1e;
-  padding: 1em;
   margin: 0.5em;
   border: 1px solid #2e2e2e;
+}
+.personDataContainer {
+  padding: 1em;
 }
 .childElement {
   background: rgb(203, 223, 230);
@@ -12,15 +14,32 @@
   border: 1px solid #2e2e2e;
 }
 .inputField {
-  margin-left: 1em;
-  width: 8em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  min-width: 8em;
 }
 .buttonRow {
   padding: 0.5em;
 }
 .buttonWithMargin {
+  min-width: 14em;
   margin-left: 0.5em;
   margin-right: 0.5em;
+}
+.removeIcon {
+  font-size: 18px;
+  cursor: pointer;
+  float: right;
+  margin-top: 0em;
+  margin-right: 0.4em;
+}
+.personId {
+  margin-top: 0em;
+  margin-left: 0.4em;
+  float: left;
+}
+.removeIcon:hover {
+  color: red;
 }
 input {
   text-align: center;
