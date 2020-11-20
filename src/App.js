@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import Radium from 'radium';
 
-import './App.css';
+// import './App.css';
 import Person from './Person/Person';
 import personsData from './Person/data/Persons.json';
 import newPersonData from './Person/data/NewPerson.json'
@@ -8,9 +9,12 @@ import newPersonData from './Person/data/NewPerson.json'
 const App = () => {
     const [persons, setPersons] = useState(personsData);
     const [newPerson, setNewPerson] = useState(newPersonData);
+    const AppStyle = {
+        'text-align': 'center'
+    }
 
     return (
-        <div className="App">
+        <div style={AppStyle}>
             <h1>Some React Components:</h1>
             {persons.map((person, index) => {
                 return <Person
@@ -58,4 +62,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default Radium(App);
