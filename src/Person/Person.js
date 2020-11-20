@@ -1,28 +1,28 @@
 import React, { useState } from 'react';
-import './Person.css'
+import PersonStyle from './Person.module.css'
 
 const Person = (props) => {
     const [personName, setNewName] = useState(props.name);
     const hasChildren = props.children !== undefined;
 
     const childElement = (
-        <p className="childElement">
+        <p className={PersonStyle.childElement}>
             {props.children}
         </p>
     )
 
     return (
-        <div className="personElement">
+        <div className={PersonStyle.personElement}>
             <div>
-                <p className="removeIcon" onClick={() => props.deleteById()}>x</p>
-                <p className="personId">id: {props.id}</p>
+                <p className={PersonStyle.removeIcon} onClick={() => props.deleteById()}>x</p>
+                <p className={PersonStyle.personId}>id: {props.id}</p>
                 <br></br>
             </div>
-            <div className="personDataContainer">
+            <div className={PersonStyle.personDataContainer}>
                 <p>My name is {personName} and I am {props.age} years old!</p>
                 <p>{props.followers} people are following me.</p>
-                <div className="buttonRow">
-                    <button className="buttonWithMargin" onClick={() => {
+                <div className={PersonStyle.buttonRow}>
+                    <button className={PersonStyle.buttonWithMargin} onClick={() => {
                         const newFollowerCount = props.followers + 1;
                         const updatedPerson = { ...props };
                         updatedPerson.followers = newFollowerCount;
@@ -31,7 +31,7 @@ const Person = (props) => {
                         Add new follower
                 </button>
                     {/* <input
-                    className="inputField"
+                    className={PersonStyle.inputField}
                     type="text"
                     placeholder="Change name"
                     value={props.name}

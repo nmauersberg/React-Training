@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Radium from 'radium';
 
-// import './App.css';
+import AppStyle from './App.module.css';
+import PersonStyle from './Person/Person.module.css'
+
 import Person from './Person/Person';
 import personsData from './Person/data/Persons.json';
 import newPersonData from './Person/data/NewPerson.json'
@@ -9,12 +10,9 @@ import newPersonData from './Person/data/NewPerson.json'
 const App = () => {
     const [persons, setPersons] = useState(personsData);
     const [newPerson, setNewPerson] = useState(newPersonData);
-    const AppStyle = {
-        'text-align': 'center'
-    }
 
     return (
-        <div style={AppStyle}>
+        <div className={AppStyle.App}>
             <h1>Some React Components:</h1>
             {persons.map((person, index) => {
                 return <Person
@@ -45,14 +43,14 @@ const App = () => {
                 </Person>
             })}
             {/* Change state of newPerson */}
-            <button className="buttonWithMargin" onClick={() => {
+            <button className={PersonStyle.buttonWithMargin} onClick={() => {
                 const updatedPerson = { children: 'I have a child now too!', ...newPerson }
                 setNewPerson(updatedPerson);
             }}>
                 Update new Person
             </button>
             {/* Add newPerson to persons */}
-            <button className="buttonWithMargin" onClick={() => {
+            <button className={PersonStyle.buttonWithMargin} onClick={() => {
                 const updatedPersons = [...persons, newPerson]
                 setPersons(updatedPersons);
             }}>
@@ -62,4 +60,4 @@ const App = () => {
     );
 }
 
-export default Radium(App);
+export default App;
