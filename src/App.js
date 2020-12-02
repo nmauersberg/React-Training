@@ -5,7 +5,9 @@ import PersonStyle from './Person/Person.module.css'
 
 import Person from './Person/Person';
 import personsData from './Person/data/Persons.json';
-import newPersonData from './Person/data/NewPerson.json'
+import newPersonData from './Person/data/NewPerson.json';
+
+// Testing, 123 ...
 
 const App = () => {
     const [persons, setPersons] = useState(personsData);
